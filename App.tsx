@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Map, { Marker, Source, Layer, MapRef, NavigationControl } from 'react-map-gl/maplibre';
 import maplibregl from 'maplibre-gl';
-import { MAPBOX_TOKEN, DEFAULT_CENTER, ZOOM_LEVEL, FEATURED_CAFES, MAP_STYLE } from './constants';
+import { DEFAULT_CENTER, ZOOM_LEVEL, FEATURED_CAFES, MAP_STYLE } from './constants';
 import { getWalkingRoute, getDetourRoute, getDistance, fetchPointElevation } from './services/mapboxService';
 import { curateDestinations } from './services/geminiService';
 import { Coordinates, EnrichedDestination } from './types';
 import Sidebar from './components/Sidebar';
-import { Locate, MapPin, Menu, List } from 'lucide-react';
+import { Locate, Menu, List } from 'lucide-react';
 import { getOpenStatus } from './utils/openingHours';
 
 const App: React.FC = () => {
@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   // Debug State
   const [isDebugMode, setIsDebugMode] = useState(false);
-  const [debugLog, setDebugLog] = useState<string>('');
+  const [debugLog] = useState<string>('');
   const [btnTouchStart, setBtnTouchStart] = useState<number | null>(null);
 
   // Refs

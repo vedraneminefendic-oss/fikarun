@@ -1,5 +1,6 @@
 import { Product, ScenicRoute } from './types';
 
+// MapLibre is compatible with Mapbox tokens for certain services, but we use a public style below.
 export const MAPBOX_TOKEN = 'pk.eyJ1IjoidmVkZGV2IiwiYSI6ImNtaXc0ZGhiNDBqb2UzZXBmeDI0Z21zcGYifQ.XH_aKILr0HftAzZCbHiZrg';
 // Get your free API key at https://openweathermap.org/api
 export const OPENWEATHER_API_KEY = ''; 
@@ -8,7 +9,7 @@ export const OPENWEATHER_API_KEY = '';
 export const DEFAULT_CENTER = { lng: 11.965000, lat: 57.700000 }; 
 export const ZOOM_LEVEL = 13;
 
-// Map Style - Using Carto Voyager which works great with MapLibre without strict token checks
+// Map Style - Using Carto Voyager which works natively with MapLibre without strict token checks
 export const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
 
 export const EXPOSED_LOCATIONS = [
