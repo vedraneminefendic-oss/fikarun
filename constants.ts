@@ -1,25 +1,20 @@
 import { Product, ScenicRoute } from './types';
 
-// MapLibre is compatible with Mapbox tokens for certain services, but we use a public style below.
+// Mapbox token is kept for potential future use, but NOT used for the base map below.
 export const MAPBOX_TOKEN = 'pk.eyJ1IjoidmVkZGV2IiwiYSI6ImNtaXc0ZGhiNDBqb2UzZXBmeDI0Z21zcGYifQ.XH_aKILr0HftAzZCbHiZrg';
 // Get your free API key at https://openweathermap.org/api
 export const OPENWEATHER_API_KEY = ''; 
 
-// Gothenburg, Sweden
+// Gothenburg
 export const DEFAULT_CENTER = { lng: 11.965000, lat: 57.700000 }; 
 export const ZOOM_LEVEL = 13;
 
-// Map Style - Using Carto Voyager which works natively with MapLibre without strict token checks
+// FIX: Use open-source Carto style. This prevents the "Blocked a frame" error.
 export const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
 
 export const EXPOSED_LOCATIONS = [
-  'Älvsborgsbron',
-  'Amundön',
-  'Röda Sten',
-  'Eriksbergskranen',
-  'Sannegårdshamnen',
-  'Säröbanan',
-  'Masthuggskyrkan'
+  'Älvsborgsbron', 'Amundön', 'Röda Sten', 'Eriksbergskranen', 
+  'Sannegårdshamnen', 'Säröbanan', 'Masthuggskyrkan'
 ];
 
 export const SCENIC_ROUTES: ScenicRoute[] = [
@@ -28,33 +23,24 @@ export const SCENIC_ROUTES: ScenicRoute[] = [
     id: 'route_sarobanan',
     name: "Säröbanan (Ocean View)",
     description: "Gamla järnvägsspåret längs havet. Platt, bilfritt och magiska vyer.",
-    // Point A: Linnéplatsen (Start of the trail from city)
     pointA: { lat: 57.6908, lng: 11.9529 },
-    // Point B: Billdal (Billdals Park)
     pointB: { lat: 57.5843, lng: 11.9439 },
-    // Waypoints tvingar rutten via vattnet (Amundön)
     waypoints: [{ lat: 57.6045, lng: 11.9300 }] 
   },
   {
     id: 'route_saltholmen',
     name: "Långedrag & Saltholmen",
     description: "Från Mariaplan ut mot skärgården längs spårvagn 11.",
-    // Point A: Mariaplan (Majorna)
     pointA: { lat: 57.6815, lng: 11.9190 },
-    // Point B: Saltholmens Brygga
     pointB: { lat: 57.6605, lng: 11.8385 },
-    // Waypoint: Hinsholmen (Havskontakt)
     waypoints: [{ lat: 57.6715, lng: 11.8790 }]
   },
   {
     id: 'route_nya_varvet',
     name: "Röda Sten & Nya Varvet",
     description: "Under Älvsborgsbron, förbi graffiti och gammal örlogshamn.",
-    // Point A: Chapmans Torg / Klippan
     pointA: { lat: 57.6965, lng: 11.9135 },
-    // Point B: Nya Varvet / Hotellet
     pointB: { lat: 57.6855, lng: 11.8845 },
-    // Waypoint: Röda Sten Konsthall
     waypoints: [{ lat: 57.6905, lng: 11.9150 }]
   },
 
@@ -63,33 +49,24 @@ export const SCENIC_ROUTES: ScenicRoute[] = [
     id: 'route_ringon',
     name: "Ringön Industrial (Beer Run)",
     description: "Rått och trendigt industriområde. Via Hisingsbron.",
-    // Point A: Centralstationen / Operan
     pointA: { lat: 57.7085, lng: 11.9740 },
-    // Point B: Ivans Pilsnerbar (Ringöns hjärta)
     pointB: { lat: 57.7215, lng: 11.9655 },
-    // Waypoint: Mitt på Hisingsbron
     waypoints: [{ lat: 57.7145, lng: 11.9685 }]
   },
   {
     id: 'route_alvstranden',
     name: "Norra Älvstranden",
     description: "Träbryggor längs kajkanten med utsikt över södra stan.",
-    // Point A: Eriksbergskranen
     pointA: { lat: 57.6995, lng: 11.9135 },
-    // Point B: Lindholmen Science Park
     pointB: { lat: 57.7065, lng: 11.9685 },
-    // Waypoint: Sannegårdshamnen (Gångbron)
     waypoints: [{ lat: 57.7024, lng: 11.9299 }]
   },
   {
     id: 'route_city_moat',
     name: "Vallgraven Runt",
     description: "Historisk runda längs vattnet mitt i centrum.",
-    // Point A: Stora Teatern
     pointA: { lat: 57.7010, lng: 11.9750 },
-    // Point B: Drottningtorget
     pointB: { lat: 57.7080, lng: 11.9700 },
-    // Waypoint: Feskekörka
     waypoints: [{ lat: 57.7045, lng: 11.9550 }]
   },
 
@@ -98,44 +75,32 @@ export const SCENIC_ROUTES: ScenicRoute[] = [
     id: 'route_ramberget',
     name: "King of the Hill (Ramberget)",
     description: "Brutal backe men stans bästa utsikt som belöning.",
-    // Point A: Kvilletorget
     pointA: { lat: 57.7205, lng: 11.9535 },
-    // Point B: Rambergets Topp
     pointB: { lat: 57.7115, lng: 11.9425 },
-    // Waypoint: Keillers Park Entré
     waypoints: [{ lat: 57.7160, lng: 11.9400 }]
   },
   {
     id: 'route_slottsskogen',
     name: "Slottsskogen Park Run",
     description: "Kuperat och grönt i Göteborgs stadspark.",
-    // Point A: Linnéplatsen
     pointA: { lat: 57.6925, lng: 11.9535 },
-    // Point B: Mariaplan
     pointB: { lat: 57.6820, lng: 11.9350 },
-    // Waypoint: Säldammen
     waypoints: [{ lat: 57.6855, lng: 11.9440 }]
   },
   {
     id: 'route_anggardsbergen',
     name: "Änggårdsbergen Trail",
     description: "Vildmark med stigar och ljunghedar.",
-    // Point A: Botaniska Entrén
     pointA: { lat: 57.6835, lng: 11.9485 },
-    // Point B: Högsbo / Sisjön håll
     pointB: { lat: 57.6650, lng: 11.9450 },
-    // Waypoint: Uppe på krönet (Finns Mossar)
     waypoints: [{ lat: 57.6750, lng: 11.9550 }]
   },
   {
     id: 'route_delsjon',
     name: "Delsjön Nature Trail",
     description: "Grusvägar och skog runt sjön.",
-    // Point A: Skatås Motionscentrum
     pointA: { lat: 57.6970, lng: 12.0250 },
-    // Point B: Västra delen av Stora Delsjön
     pointB: { lat: 57.6850, lng: 12.0300 },
-    // Waypoint: Delsjöbadet
     waypoints: [{ lat: 57.6928, lng: 12.0425 }]
   }
 ];
@@ -150,11 +115,9 @@ export const RECOMMENDED_GEAR: Product[] = [
     description: 'Reliable daily trainer with soft cushioning. Perfect for city pavement.',
     tags: ['general'],
     affiliateLink: '#'
-  },
-  // ... (keeping other products the same)
+  }
 ];
 
-// ELEVATION DATA (Approximate meters above sea level for Gothenburg)
 export const FEATURED_CAFES = [
   // CAFES
   {
@@ -241,7 +204,7 @@ export const FEATURED_CAFES = [
     id: 'f6',
     name: 'Viktors Kaffe',
     address: 'Geijersgatan 7, Gothenburg',
-    coordinates: { lat: 57.69738400826711, lng: 11.978046326542298 },
+    coordinates: { lat: 57.69785914041037, lng: 11.978046326542298 },
     category: 'cafe',
     elevation: 15,
     openingHours: 'Mon-Fri 07:30-18:00, Sat 11:00-17:00, Sun 12:00-16:00',
