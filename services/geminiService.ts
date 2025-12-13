@@ -1,3 +1,4 @@
+import { GoogleGenAI, Type } from "@google/genai";
 import { EnrichedDestination } from "../types";
 
 // Increment cache version to v3 to clear old, weather-dependent cache
@@ -71,9 +72,6 @@ export const curateDestinations = async (
   }
 
   try {
-    // LAZY LOAD FIX: Import GoogleGenAI only when needed
-    const { GoogleGenAI, Type } = await import("@google/genai");
-
     const ai = new GoogleGenAI({ apiKey });
     
     const placesInput = placesToEnrich.map(d => ({

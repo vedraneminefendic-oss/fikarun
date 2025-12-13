@@ -119,13 +119,24 @@ const parseRouteResponse = (data: any, startElev?: number, endElev?: number): Om
   }
 
   const allSteps = route.legs.flatMap((leg: any) => 
-    leg.steps.map((step: any) => ({
-      instruction: step.maneuver.instruction,
-      distance: step.distance,
-      location: step.maneuver.location 
-        ? { lng: step.maneuver.location[0], lat: step.maneuver.location[1] } 
-        : undefined
-    }))
+    leg.steps.map((step: any) => {
+      let location = undefined;
+      if (
+          step.maneuver && 
+          step.maneuver.location && 
+          step.maneuver.location.length >= 2 && 
+          Number.isFinite(step.maneuver.location[0]) && 
+          Number.isFinite(step.maneuver.location[1])
+      ) {
+          location = { lng: step.maneuver.location[0], lat: step.maneuver.location[1] };
+      }
+
+      return {
+        instruction: step.maneuver.instruction,
+        distance: step.distance,
+        location: location
+      };
+    })
   );
   
   // Calculate Net Elevation if start/end known

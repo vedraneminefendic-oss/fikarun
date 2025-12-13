@@ -1,1 +1,2 @@
-// Weather service has been deprecated and removed.
+// Service removed to simplify app configuration. 
+// Weather dependency has been removed.
