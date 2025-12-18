@@ -8,8 +8,8 @@ export const OPENWEATHER_API_KEY = '';
 export const DEFAULT_CENTER = { lng: 11.965000, lat: 57.700000 }; 
 export const ZOOM_LEVEL = 13;
 
-// SAFE MAP STYLE (Carto Voyager - No API Key needed for tiles)
-export const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
+// Map Style - Switched to Streets for better visibility of building footprints
+export const MAP_STYLE = 'mapbox/streets-v11';
 
 export const EXPOSED_LOCATIONS = [
   'Älvsborgsbron',
